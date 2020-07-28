@@ -13,10 +13,13 @@ public class Controller : NetworkBehaviour
 
     Rigidbody m_rb;
 
+    Weapon m_wp;
+
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        m_wp = GetComponent<Weapon>();
     }
 
     // Update is called once per frame
@@ -31,7 +34,6 @@ public class Controller : NetworkBehaviour
     {
         float h = Input.GetAxisRaw(HORIZONTAL);
         float v = Input.GetAxisRaw(VERTICAL);
-        Debug.Log($"h: {h} , v: {v}");
 
         var dir = new Vector3(h, .0f, v);
 
@@ -41,6 +43,11 @@ public class Controller : NetworkBehaviour
         if (h != 0 || v != 0)
         {
             m_rb.rotation = Quaternion.LookRotation(dir);
+        }
+
+        if (Input.GetKeyUp("space"))
+        {
+            m_wp.CmdShoot();
         }
     }
 }
