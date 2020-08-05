@@ -7,6 +7,8 @@ public class Bullet : NetworkBehaviour
 {
     public Transform FirePoint { get; set; }
 
+    public GameObject m_explosionPrefab;
+
     [SerializeField] float m_speed = 30f;
     // Start is called before the first frame update
     void Start()
@@ -20,5 +22,16 @@ public class Bullet : NetworkBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject exp = Instantiate(m_explosionPrefab,this.transform.position, this.transform.rotation);
+
+        Destroy(exp, 10);
+
+        Destroy(gameObject);
+
+
     }
 }
