@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using EZCameraShake;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,10 @@ public class ManagerNetwork : NetworkManager
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp("q"))
+        {
+            CameraShaker.Instance.ShakeOnce(2f, 2f, 0.5f,0.35f);
+        }
     }
 
     public override void OnServerAddPlayer(NetworkConnection conn)

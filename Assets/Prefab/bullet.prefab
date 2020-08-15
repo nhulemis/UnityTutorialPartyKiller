@@ -377,6 +377,7 @@ MonoBehaviour:
   syncInterval: 0.1
   m_explosionPrefab: {fileID: 8024594047305331079, guid: e6722aeb5e03c044fb66420541b65b6b,
     type: 3}
+  shake: {fileID: 0}
   m_speed: 30
 --- !u!95 &4046375007935242219
 Animator:

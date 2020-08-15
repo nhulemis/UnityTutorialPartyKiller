@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using EZCameraShake;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,6 @@ public class Bullet : NetworkBehaviour
 
         Destroy(gameObject);
 
-
+        CameraShaker.Instance.ShakeOnce(3f, 2f, 0.5f, 0.35f);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using EZCameraShake;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,10 +54,10 @@ public class Weapon : NetworkBehaviour
         }
     }
 
-    [Command]
+    //[Command]
     public void CmdShoot()
     {
-        if (m_bulletReady <= 0 )
+         if (m_bulletReady <= 0 )
         {
             return;
         }
@@ -79,5 +80,6 @@ public class Weapon : NetworkBehaviour
 
         m_bulletReady--;
         m_nextTimeToRefill = 1f / m_refillRate + Time.time;
+        CameraShaker.Instance.ShakeOnce(2f, 2f, 0.5f, 0.35f);
     }
 }
