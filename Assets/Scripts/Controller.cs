@@ -47,7 +47,17 @@ public class Controller : NetworkBehaviour
 
         if (Input.GetKeyUp("space"))
         {
-            m_wp.CmdShoot();
+            m_wp.Shoot();
         }
+
+        if (Input.GetKeyUp("n"))
+        {
+            KilledPlayer();
+        }
+    }
+
+    public void KilledPlayer()
+    {
+        GameManager.Instance.IsEndGame = true;
     }
 }

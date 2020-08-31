@@ -11,12 +11,16 @@ public class Bullet : NetworkBehaviour
     public GameObject m_explosionPrefab;
 
     [SerializeField] float m_speed = 30f;
+
+    AudioSource shootFx;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * 1.5f * m_speed , ForceMode.VelocityChange);
+        shootFx = GetComponent<AudioSource>();
 
+        shootFx.Play();
     }
 
     // Update is called once per frame
@@ -34,5 +38,7 @@ public class Bullet : NetworkBehaviour
         Destroy(gameObject);
 
         CameraShaker.Instance.ShakeOnce(3f, 2f, 0.5f, 0.35f);
+
+        // kill player
     }
 }

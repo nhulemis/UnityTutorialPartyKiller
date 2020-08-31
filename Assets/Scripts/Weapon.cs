@@ -55,7 +55,7 @@ public class Weapon : NetworkBehaviour
     }
 
     //[Command]
-    public void CmdShoot()
+    public void Shoot()
     {
          if (m_bulletReady <= 0 )
         {

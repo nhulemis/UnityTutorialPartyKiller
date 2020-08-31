@@ -8,6 +8,8 @@ TagManager:
   - PlayerB
   - spawnA
   - spawnB
+  - Bullet
+  - Fx
   layers:
   - Default
   - TransparentFX

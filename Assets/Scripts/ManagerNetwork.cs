@@ -38,6 +38,7 @@ public class ManagerNetwork : NetworkManager
 
         if (numPlayers == 0)
         {
+            Debug.Log("player A");
             start = GameObject.FindGameObjectWithTag("spawnA").transform;
             player = Instantiate(playerPrefab, start.position, start.rotation);
         }
@@ -62,5 +63,10 @@ public class ManagerNetwork : NetworkManager
     {
         // call base functionality (actually destroys the player)
         base.OnServerDisconnect(conn);
+    }
+
+    public void EndGame() 
+    {
+        
     }
 }
