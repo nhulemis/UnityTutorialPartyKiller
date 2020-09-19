@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4636509831851430285}
   m_Layer: 0
   m_Name: Riser
-  m_TagString: Untagged
+  m_TagString: Riser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,5 +149,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.5509858, z: 1}
-  m_Center: {x: 0, y: -0.14241934, z: 0}
+  m_Size: {x: 1, y: 9.239143, z: 1}
+  m_Center: {x: 0, y: -0.9441252, z: 0}

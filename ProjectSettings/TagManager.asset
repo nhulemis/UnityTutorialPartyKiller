@@ -10,6 +10,7 @@ TagManager:
   - spawnB
   - Bullet
   - Fx
+  - Riser
   layers:
   - Default
   - TransparentFX

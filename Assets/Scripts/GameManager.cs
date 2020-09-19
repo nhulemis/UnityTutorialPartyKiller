@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private int currentLevel;
+    public GameObject PlayerPrefabA;
+    public GameObject PlayerPrefabB;
 
     public bool IsEndGame { get; set; }
 
@@ -28,6 +30,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
 
         yield return new WaitForSeconds(1);
+
+        JoinGame();
+    }
+
+    private void JoinGame()
+    {
+        Transform start;
+        GameObject player;
+
+        start = GameObject.FindGameObjectWithTag("spawnA").transform;
+        player = Instantiate(PlayerPrefabA, start.position, start.rotation);
+
+        start = GameObject.FindGameObjectWithTag("spawnB").transform;
+        player = Instantiate(PlayerPrefabB, start.position, start.rotation);
+
     }
 
     // Update is called once per frame
@@ -80,6 +97,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
 
         yield return new WaitForSeconds(1);
+
+        JoinGame();
 
     }
 }
