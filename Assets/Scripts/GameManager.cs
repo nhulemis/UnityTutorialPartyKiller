@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefabA;
     public GameObject PlayerPrefabB;
 
+    public Animator animator;
     public bool IsEndGame { get; set; }
 
     // Start is called before the first frame update
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator EndGame()
     {
+        animator.SetTrigger("FadeIn");
+
         yield return new WaitForSeconds(.75f);
 
         foreach (var bullet in GameObject.FindGameObjectsWithTag("Bullet"))
@@ -83,8 +86,6 @@ public class GameManager : MonoBehaviour
             Destroy(player);
         }
 
-        yield return new WaitForSeconds(.75f);
-
         AsyncOperation gameUnload = SceneManager.UnloadSceneAsync(currentLevel);
 
         while (!gameUnload.isDone)
@@ -96,9 +97,9 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
 
-        yield return new WaitForSeconds(1);
-
+        yield return new WaitForSeconds(0.5f);
         JoinGame();
-
+        yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("FadeOut");
     }
 }
